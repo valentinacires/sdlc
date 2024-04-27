@@ -9,30 +9,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-   - uses: actions/checkout@v4
+     - uses: actions/checkout@v4
 
-    - name: Initialize terraform
-      working-directory: asg
-        run: |
+     - name: Initialize terraform
+       working-directory: asg
+       run: |
          Terraform init 
 
   
-    - name: Configure workspace
-      working-directory: asg
-        run: |
+     - name: Configure workspace
+       working-directory: asg
+       run: |
          Terraform workspace new dev || terraform workspace select dev 
 
-    - name: Plan
+     - name: Plan
       working-directory: asg
       run: |
-      terraform plan
+       terraform plan
 
   
-    - name: Apply
-      working-directory: asg
-      run: |
-      echo ""applying"
-      #terraform apply -auto-approve       
+     - name: Apply
+       working-directory: asg
+       run: |
+       echo ""applying"
+       #terraform apply -auto-approve       
 
 
 
