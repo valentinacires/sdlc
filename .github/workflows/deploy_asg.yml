@@ -1,11 +1,8 @@
-name: Deploy ASG
-
+name: Deploy asg
 
 on:
   push:
     branches: [ "main" ]
-
-
 
 jobs:
   build:
