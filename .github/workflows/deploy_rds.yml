@@ -1,40 +1,38 @@
 name: Deploy rds
 
-
 on:
   push:
     branches: [ "main" ]
 
-
-
 jobs:
   build:
-   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
-   - uses: actions/checkout@v4
 
-    - name: Initialize terraform
-      working-directory: rds
-        run: |
+     - uses: actions/checkout@v4
+
+     - name: Initialize terraform
+       working-directory: rds
+       run: |
          Terraform init 
 
   
-    - name: Configure workspace
-      working-directory: rds
-        run: |
+     - name: Configure workspace
+       working-directory: rds
+       run: |
          Terraform workspace new dev || terraform workspace select dev 
 
-    - name: Plan
+     - name: Plan
       working-directory: rds
       run: |
-      terraform plan
+       terraform plan
 
   
-    - name: Apply
-      working-directory: rds
-      run: |
-      echo ""applying"
-      #terraform apply -auto-approve       
+     - name: Apply
+       working-directory: rds
+       run: |
+       echo ""applying"
+       #terraform apply -auto-approve       
 
 
 
