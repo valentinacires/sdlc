@@ -16,5 +16,5 @@ jobs:
 
        - name: Initialize terraform 
         run: |
-        Terraform init 
+         Terraform init 
           
